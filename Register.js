@@ -1,9 +1,9 @@
 import {useSelector,useDispatch} from "react-redux";
-import LoginCreator from './LoginCreator';
+import LoginCreator from '../redux/LoginCreator';
 import {bindActionCreators} from "redux";
 import { useState } from 'react';
-import emp from '../images/emp.png';
-import start from '../images/start.jpg';
+//import emp from '../images/emp.png';
+//import start from '../images/start.jpg';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import {BrowserRouter,Link,Switch,Route} from "react-router-dom";
@@ -37,10 +37,12 @@ function Register() {
     alert("New user added successfully");
     history.push('/userlogin')
   }
+  //style={{backgroundImage:`url(${start})`}} >
+  //<img src={emp} alt=" " height=" 100px"/>
 
   return(
-    <div style={{backgroundImage:`url(${start})`}} >  
-    <h1 style={{color:'green'}} ><img src={emp} alt=" " height=" 100px"/> REGISTER TO ENTER INTO THE TAILOR STORE!<br/></h1>
+     <div>   
+     <h1 style={{color:'green'}} > REGISTER TO ENTER INTO THE TAILOR STORE!<br/></h1> 
     
      <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)}  style={{border:'1px solid blue',"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'darkgreen'}} >
     
@@ -66,19 +68,39 @@ function Register() {
                 // {...register('name',{required:true})}
                 ></input><br/>
             {errors.lastname?.type==='required' && <p className="text-danger" style={{color:'red'}}>*LastName is required</p>}  
-    <label htmlFor="usercategory">  Select your category</label>   : <input type="text"  id="usercat"  className="form-control"  
+    {/* <label htmlFor="usercategory">  Select your category</label>   : <input type="text"  id="usercat"  className="form-control"  
                 onChange={(e)=>setUsercategory(e.target.value)}
                 value={usercategory}
                 required
                 // {...register('name',{required:true})}
-                ></input><br/>
+                ></input><br/> */}
+              <label htmlFor="usercategory">  Select your category</label>   : <select value={usercategory} 
+              onChange={(e)=>setUsercategory(e.target.value)} required>
+            <option value="Customer">Customer</option>
+            <option value="Tailor">Tailor</option>
+            
+          </select><br/><br/>
                 {errors.usercategory?.type==='required' && <p className="text-danger" style={{color:'red'}}>*usercategory is required</p>}
-    <label htmlFor="gender">  select your gender</label>   : <input type="text"  id=""  className="form-control"  
+    {/* <label htmlFor="gender">  select your gender</label>   : <input type="text"  id=""  className="form-control"  
                 onChange={(e)=>setGender(e.target.value)}
                 value={gender}
                 required
                 // {...register('name',{required:true})}
-                ></input><br/>
+                ></input><br/> */}
+                 <label htmlFor="gender"> select your gender<br/><rb/>
+            <input
+              type="radio"
+              value="Male"
+              onChange={(e)=>setGender(e.target.value)}
+            />Male
+          </label>
+          <label> 
+            <input
+              type="radio"
+              value="Female"
+              onChange={(e)=>setGender(e.target.value)}
+            />Female
+          </label><br/><br/>
                 {errors.firstname?.type==='required' && <p className="text-danger" style={{color:'red'}}>*FirstName is required</p>}
     <label htmlFor="dob">  Enter your DOB</label>   : <input type="date"  id="dob"  className="form-control"  
                 onChange={(e)=>setDob(e.target.value)}
@@ -120,4 +142,3 @@ function Register() {
 
 }
 export default Register;
-
