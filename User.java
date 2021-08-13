@@ -11,7 +11,7 @@ public class User {
 	private int id;
 	private String firstname;
 	private String lastname;
-	private int dob;
+	private String dob;
 	private String gender;
 	private String usercategory;
 	private long contact;
@@ -22,7 +22,7 @@ public class User {
 		super();
 	}
 
-	public User(int id, String firstname, String lastname, int dob, String gender, String usercategory, long contact,
+	public User(int id, String firstname, String lastname, String dob, String gender, String usercategory, long contact,
 			String email, String password) {
 		super();
 		this.id = id;
@@ -60,11 +60,11 @@ public class User {
 		this.lastname = lastname;
 	}
 
-	public int getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(int dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 
