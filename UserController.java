@@ -40,8 +40,8 @@ public class UserController {
 //		return mv;
 //	}
 	
-	@RequestMapping(path="/insert",produces=MediaType.APPLICATION_JSON_VALUE)
-		public ResponseEntity<User> inserts( User user) {
+	@PostMapping(path="/insert",consumes=MediaType.APPLICATION_JSON_VALUE)
+		public ResponseEntity<User> inserts(@RequestBody User user) {
 //		ResponseEntity<User>
 		userservice.storeUser(user);
 //		return user;
