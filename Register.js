@@ -35,7 +35,7 @@ function Register() {
   }
   const onFormSubmit=()=>{
     alert("New user added successfully");
-    history.push('/userlogin')
+    //history.push('/userlogin')
   }
   //style={{backgroundImage:`url(${start})`}} >
   //<img src={emp} alt=" " height=" 100px"/>
