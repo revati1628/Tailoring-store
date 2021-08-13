@@ -53,7 +53,7 @@ function Register() {
                 // {...register('ad',{required:true})}
                 >
                   </input><br/>
-     {errors.ad?.type==='required' && <p className="text-danger" style={{color:'red'}}>*AADHAR_NO is required</p>}                          
+     {errors.ad?.type==='required' && <p className="text-danger" style={{color:'red'}}>*USER_ID is required</p>}                          
      <label htmlFor="fname">  Enter your First Name</label>   : <input type="text"  id="fname"  className="form-control"  
                 onChange={(e)=>setFirstname(e.target.value)}
                 value={firstname}
