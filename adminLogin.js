@@ -8,7 +8,7 @@ export default function AdminLogin() {
 
     const [user,setUser]=useState({})
     const [val,setVal]=useState({
-        "email":"",
+        "id":"",
         "password":""
     })
     
@@ -25,16 +25,24 @@ export default function AdminLogin() {
           setUser(res);
 
          
-          if((val.email === res.email) && (val.password === res.password))
+          if((val.id != res.id) )
                 {
+                  alert("User ID not present");
+               
                 
-                alert("successful");
-                history.push('AdminPage')
                }
 
-              else{
-                 alert("not successfull");
+          else if( (val.password !== res.password)){
+                 alert("Password not matching");
                 }
+          else if((val.id == res.id) && (val.password === res.password) )
+          {
+            alert("Login successfull");
+            history.push('AdminPage')
+          }
+          else{
+            alert("Login not successfull");
+          }
 
             
   
@@ -47,10 +55,10 @@ export default function AdminLogin() {
     return (
          <form onSubmit={handleSubmit} >
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                name="email"onChange={(e)=>{setVal({...val,email:e.target.value})}}/>
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                <label htmlFor="id" className="form-label">User ID</label>
+                <input type="number" className="form-control" id="id" 
+                name="id"onChange={(e)=>{setVal({...val,id:e.target.value})}}/>
+                <div id="id" className="form-text">We'll never share your id with anyone else.</div>
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
