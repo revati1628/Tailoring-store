@@ -1,0 +1,12 @@
+.faq
+{
+  border: solid black;
+  background-color:gray;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  text-align:inherit;
+  padding-left: 250px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
