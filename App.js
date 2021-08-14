@@ -1,15 +1,19 @@
-
 import './App.css';
 import Register from './components/Register';
 import {BrowserRouter,Link,Switch,Route} from "react-router-dom";
-
+//componets importing
+import UserPage from "./UserComponents/UserPage";
 import UserPortal from './components/UserPortal';
 import UserLogin from './components/UserLogin';
-import AdminPage from './components/AdminPage';
+import AdminPage from './AdminComponents/AdminPage';
+import HelpPage from "./UserComponents/HelpPage";
 import AdminLogin from './components/adminLogin';
+import IssuesNotification from './components/IsuuesNotification';
 function App() {
   return(
     <div>
+       <IssuesNotification />
+       
     <h1 style={{color:'purple',height:'150px',textAlign:'center',backgroundColor:'grey'}}> Welcome To The Great Minds!<br/><p style={{color:'silver'}}>(Share your Startup idea and the best idea will be funded upto $1,00,000)</p> </h1>
     
     <BrowserRouter>
@@ -47,9 +51,14 @@ function App() {
         <Route path="/AdminLogin" component={AdminLogin}>
         <AdminLogin />
         </Route>
+
+        <Route path="/UserPage" component={UserPage}></Route>
+
+        <Route path="/HelpPage" component={HelpPage}></Route>
       </Switch>
       </div>
     </BrowserRouter>
+   
     </div>
   )
 }
