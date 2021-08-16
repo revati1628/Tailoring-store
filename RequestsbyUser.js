@@ -25,9 +25,9 @@ export default function RequestsbyUser() {
                 {
                     issueList.map((list,ind)=>{
                        const response=()=>{
-                            console.log(list.issue);
-                            console.log(list.description);
-                            console.log(list.date);
+                            document.write(`<p>${list.issue}<br/>
+                            ${list.description}<br/>
+                           ${list.date}</p>`);
                        }
                         return(
                             <div key={ind}>
