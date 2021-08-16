@@ -8,7 +8,7 @@ import UserLogin from './UserLogin';
 import AdminPage from '../AdminComponents/AdminPage';
 import HelpPage from "../UserComponents/HelpPage";
 import AdminLogin from './adminLogin';
-import IssuesNotification from './IsuuesNotification';
+import IssuesNotification from '../AdminComponents/IsuuesNotification';
 //import RequestsbyUser from "./AdminComponents/RequestsbyUser";
 import PortalPage from "./PortalPage";
 import FeedbackForm from "../AdminComponents/FeedbackForm";
