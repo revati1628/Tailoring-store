@@ -130,7 +130,11 @@ function Register() {
                 required
                 // {...register('email',{required:true})}
                 ></input><br/> 
-                {errors.email?.type==='required' && <p className="text-danger" style={{color:'red'}}>*EmailAddress is required</p>}  
+                {errors.email?.type==='required' && <p className="text-danger" style={{color:'red'}}>*EmailAddress is required</p>}
+
+                 <nav className="nav-item "  style={{color:'brown'}}>
+         <Link className="nav-link" to="/SecurityQuestionForm" >SecurityQuestionForm</Link>
+        </nav>
     <button type="submit" className="btn btn-success" style={{backgroundColor:'green',borderRadius:'30px',paddingLeft:'30px'}} onClick={post}>Sign Up</button><br/>
    </form><br/>
     
