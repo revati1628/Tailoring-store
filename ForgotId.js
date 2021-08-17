@@ -4,15 +4,12 @@ import { useHistory } from 'react-router-dom'
 export default function ForgotId() {
 
     let history=useHistory();
-    const[response,setResponse]=useState({})
+    const[responses,setResponses]=useState({})
     const [data,setData]=useState({
         "contact":"",
-	    "securityquestion1":"",
         "securityanswer1":"",
-        "securityquestion2":"",
         "securityanswer2":"",
-        "securityquestion3":"",
-        "securityanswer3":"",
+        "securityanswer3":""
     })
 
     const handleValidation=(e)=>{
@@ -25,7 +22,8 @@ export default function ForgotId() {
         .then((res) =>{ 
           
           console.log("From db",res);
-          setResponse(res);
+          setResponses(res);
+         
 
           if(((data.securityanswer1 === res.securityanswer1) && (data.securityanswer2 === res.securityanswer2) &&
            (data.securityanswer3 === res.securityanswer3)) && (data.contact === res.contact) )
@@ -68,13 +66,8 @@ export default function ForgotId() {
         {/* question 1     */}
         <div className="mb-3">
           <label htmlFor="question1" className="form-label">Security Question 1</label>
-          <select onChange={(e)=>{setData({...data,securityquestion1:e.target.value})}}
-           name="question1" required>
-          <option value="select question">select question</option>
-            <option value="Who is your favourite hero">Who is your favourite hero</option>
-            <option value="What is your favourite pet">What is your favourite pet</option>
-            <option value="What is your favourite book">What is your favourite book</option>
-          </select>
+           <p id="question1">Who is your favourite hero ?</p>
+          
          </div> 
 
 
@@ -90,13 +83,8 @@ export default function ForgotId() {
          {/* question 2     */}
          <div className="mb-3">
           <label htmlFor="question2" className="form-label">Security Question 2</label>
-          <select onChange={(e)=>{setData({...data,securityquestion2:e.target.value})}} 
-          name="question2" required>
-          <option value="select question">select question</option>
-          <option value="Who is your favourite hero">Who is your favourite hero</option>
-            <option value="What is your favourite pet">What is your favourite pet</option>
-            <option value="What is your favourite book">What is your favourite book</option>
-          </select>
+          <p id="question2">What is your favourite pet ?</p>
+           
          </div> 
 
          <div className="mb-3">
@@ -110,13 +98,9 @@ export default function ForgotId() {
          {/* question 3     */}
          <div className="mb-3">
           <label htmlFor="question3" className="form-label">Security Question 3</label>
-          <select onChange={(e)=>{setData({...data,securityquestion3:e.target.value})}}
-           name="question3" required>
-          <option value="select question">select question</option>
-          <option value="Who is your favourite hero">Who is your favourite hero</option>
-            <option value="What is your favourite pet">What is your favourite pet</option>
-            <option value="What is your favourite book">What is your favourite book</option>
-         </select>
+          
+            <p id="question3">What is your favourite book ?</p>
+        
          </div> 
           
         <div className="mb-3">
@@ -140,3 +124,4 @@ export default function ForgotId() {
         </div>
     )
 }
+
