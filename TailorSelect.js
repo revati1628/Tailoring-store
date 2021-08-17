@@ -30,29 +30,33 @@ const TailorSelect=()=>{
 
     return(
         <div className="container">
-            <div>
+            <div className="row">
+                <div className="col-3" style={{border:'2px solid black'}}>
+                    <h6>Fill The Form To Chose What You Wish To Stich !</h6>
                 <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)}>
                     <label htmlFor="tid">Enter your registered Tailor Id</label><input type="text" className="form-control"  id="tid"
                         onChange={(e)=>setSortid(e.target.value)}
                         value={sortid}
                         required
                         ></input><br/>
-                    <label htmlFor="cat">Click to Select your category</label><select type="text" id="cat" className="form-control" 
+                    <label htmlFor="cat">Click to Select category</label><select type="text" id="cat" className="form-control" 
                         onChange={(e)=>setCategory(e.target.value)}
                         value={category}
                         required>
                             <option>Select</option>
+                            <hr></hr>
                             <option value="Men">Men</option>
                             <option value="Women">Women</option>
                             <option value="Girls">Girls</option>
                             <option value="Boys">Boys</option>
                         </select><br/>
-                    <label htmlFor="dt">Click to Select your Dress Type</label><select type="text" className="form-control" id="dt" 
+                    <label htmlFor="dt">Click to Select Dress Type</label><select type="text" className="form-control" id="dt" 
                         onChange={(e)=>setDresstype(e.target.value)}
                         value={dresstype}
                         required
                         >
                             <option>Select</option>
+                            <hr/>
                             <option value="Business">Business</option>
                             <option value="Formal">Formal</option>
                             <option value="Casual">Casual</option>
@@ -64,6 +68,7 @@ const TailorSelect=()=>{
                     <button type="submit" className="btn btn-success" style={{backgroundColor:'green',borderRadius:'30px',paddingLeft:'30px'}} onClick={post}>Submit</button><br/>
 
                 </form>
+                </div>
             </div>
         </div>
  
