@@ -7,14 +7,11 @@ export default function SecurityQuestionForm() {
     let history=useHistory();
     const[security,setSecurity]=useState({
         "userId":"",
-	    "securityquestion1":"",
         "securityanswer1":"",
-        "securityquestion2":"",
         "securityanswer2":"",
-        "securityquestion3":"",
         "securityanswer3":"",
         "contact":""
-	
+
     })
 
     const handleSubmit=(e)=>{
@@ -53,13 +50,9 @@ export default function SecurityQuestionForm() {
         {/* question 1     */}
         <div className="mb-3">
           <label htmlFor="question1" className="form-label">Security Question 1</label>
-          <select onChange={(e)=>{setSecurity({...security,securityquestion1:e.target.value})}}
-           name="question1" required>
-          <option value="select question">select question</option>
-            <option value="Who is your favourite hero">Who is your favourite hero</option>
-            <option value="What is your favourite pet">What is your favourite pet</option>
-            <option value="What is your favourite book">What is your favourite book</option>
-          </select>
+          
+            <p id="question1">Who is your favourite hero ?</p>
+           
          </div> 
 
 
@@ -75,13 +68,9 @@ export default function SecurityQuestionForm() {
          {/* question 2     */}
          <div className="mb-3">
           <label htmlFor="question2" className="form-label">Security Question 2</label>
-          <select onChange={(e)=>{setSecurity({...security,securityquestion2:e.target.value})}} 
-          name="question2" required>
-          <option value="select question">select question</option>
-          <option value="Who is your favourite hero">Who is your favourite hero</option>
-            <option value="What is your favourite pet">What is your favourite pet</option>
-            <option value="What is your favourite book">What is your favourite book</option>
-          </select>
+         
+            <p id="question2">What is your favourite pet ?</p>
+            
          </div> 
 
          <div className="mb-3">
@@ -95,13 +84,9 @@ export default function SecurityQuestionForm() {
          {/* question 3     */}
          <div className="mb-3">
           <label htmlFor="question3" className="form-label">Security Question 3</label>
-          <select onChange={(e)=>{setSecurity({...security,securityquestion3:e.target.value})}}
-           name="question3" required>
-          <option value="select question">select question</option>
-          <option value="Who is your favourite hero">Who is your favourite hero</option>
-            <option value="What is your favourite pet">What is your favourite pet</option>
-            <option value="What is your favourite book">What is your favourite book</option>
-         </select>
+         
+            <p id="question3">What is your favourite book ?</p>
+        
          </div> 
           
         <div className="mb-3">
