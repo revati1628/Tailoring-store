@@ -37,7 +37,7 @@ const TailorSelect=()=>{
                         value={sortid}
                         required
                         ></input><br/>
-                    <label htmlFor="cat">Select category</label><select type="text" id="cat" className="form-control" 
+                    <label htmlFor="cat">Click to Select your category</label><select type="text" id="cat" className="form-control" 
                         onChange={(e)=>setCategory(e.target.value)}
                         value={category}
                         required>
@@ -47,7 +47,7 @@ const TailorSelect=()=>{
                             <option value="Girls">Girls</option>
                             <option value="Boys">Boys</option>
                         </select><br/>
-                    <label htmlFor="dt">Select Dress Type</label><select type="text" className="form-control" id="dt" 
+                    <label htmlFor="dt">Click to Select your Dress Type</label><select type="text" className="form-control" id="dt" 
                         onChange={(e)=>setDresstype(e.target.value)}
                         value={dresstype}
                         required
