@@ -7,18 +7,19 @@ import { bindActionCreators } from "redux";
 import LoginCreator from "./LoginCreator";
 
 
-const TailorSelect=()=>{
-    let {register,handleSubmit,formState:{errors}}=useForm();
 
+const TailorSelect=()=>{
+    
+    let {register,handleSubmit,formState:{errors}}=useForm();
     const storeObj=useSelector((store)=>store)
     const [sortid,setSortid]=useState(storeObj.state.sortid)
     const [category,setCategory]=useState(storeObj.state.category)
     const [dresstype,setDresstype]=useState(storeObj.state.dresstype)
+    const [occassion,setOccassion]=useState(storeObj.state.occassion)
     let dispatch=useDispatch();
-    const {postTailorSelect,getTailorSelect}=bindActionCreators(LoginCreator,dispatch)
-    // let history=useHistory();
+    const {postTailorSelect,getTailorSelect}=bindActionCreators(LoginCreator,dispatch) 
 
-    let  obj={sortid:sortid,category:category,dresstype:dresstype}
+    let  obj={sortid:sortid,category:category,dresstype:dresstype,occassion:occassion}
     const post=()=>{
         console.log(obj)
         postTailorSelect(obj);
@@ -32,7 +33,7 @@ const TailorSelect=()=>{
         <div className="container">
             <div className="row">
                 <div className="col-3" style={{border:'2px solid black'}}>
-                    <h6>Fill The Form To Chose What You Wish To Stich !</h6>
+  <h6>Fill The Form To Chose What You Wish To Stich !</h6>
                 <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)}>
                     <label htmlFor="tid">Enter your registered Tailor Id</label><input type="text" className="form-control"  id="tid"
                         onChange={(e)=>setSortid(e.target.value)}
@@ -57,14 +58,27 @@ const TailorSelect=()=>{
                         >
                             <option>Select</option>
                             <hr/>
+                            <option value="Shirt">Shirt</option>
+                            <option value="Pant">Pant</option>
+                            <option value="crop top">Crop Top</option>
+                            <option value="Lehenga">Lehenga</option>
+                            <option value="Suite">Suite</option>                         
+                        </select><br/>
+                    <label htmlFor="oc">Click to Select Occassion</label><select type="text" className="form-control" id="oc" 
+                        onChange={(e)=>setOccassion(e.target.value)}
+                        value={occassion}
+                        required
+                        >
+                            <option>Select</option>
+                            <hr/>
                             <option value="Business">Business</option>
                             <option value="Formal">Formal</option>
                             <option value="Casual">Casual</option>
                             <option value="Ethnic">Ethnic</option>
                             <option value="Bridal">Bridal</option>
                             <option value="Kurthi">Kurthi</option>
-                            
-                        </select><br/>
+                        </select>
+                        
                     <button type="submit" className="btn btn-success" style={{backgroundColor:'green',borderRadius:'30px',paddingLeft:'30px'}} onClick={post}>Submit</button><br/>
 
                 </form>
