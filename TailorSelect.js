@@ -1,14 +1,15 @@
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector,useDispatch } from "react-redux";
 // import { useHistory } from "react-router";
 import { bindActionCreators } from "redux";
-import LoginCreator from "./LoginCreator";
+import LoginCreator from "../redux/LoginCreator";
 
 
 
-const TailorSelect=()=>{
+export default function TailorSelect() 
+{
     
     let {register,handleSubmit,formState:{errors}}=useForm();
     const storeObj=useSelector((store)=>store)
@@ -20,6 +21,22 @@ const TailorSelect=()=>{
     const {postTailorSelect,getTailorSelect}=bindActionCreators(LoginCreator,dispatch) 
 
     let  obj={sortid:sortid,category:category,dresstype:dresstype,occassion:occassion}
+    
+    const [dressTypes,setDressTypes]=useState([])
+    
+    
+        useEffect(() => {
+            fetch("http://localhost:8080/getDressType")
+           .then(response =>response.json())
+            .then(res =>{
+                setDressTypes(res)
+                //console.log("dresstype",res);
+                
+            })
+        }, [])
+
+        console.log("from state",dressTypes);
+    
     const post=()=>{
         console.log(obj)
         postTailorSelect(obj);
@@ -28,22 +45,27 @@ const TailorSelect=()=>{
     const onFormSubmit=()=>{
         alert("Your chosen categories has been recorded! ");
     }
-
+        
     return(
         <div className="container">
             <div className="row">
                 <div className="col-3" style={{border:'2px solid black'}}>
-  <h6>Fill The Form To Chose What You Wish To Stich !</h6>
+        <h6>Fill The Form To Chose What You Wish To Stich !</h6>
                 <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)}>
                     <label htmlFor="tid">Enter your registered Tailor Id</label><input type="text" className="form-control"  id="tid"
                         onChange={(e)=>setSortid(e.target.value)}
                         value={sortid}
+                        //{...register('sortid',{required:true})}
+
                         required
                         ></input><br/>
                     <label htmlFor="cat">Click to Select category</label><select type="text" id="cat" className="form-control" 
                         onChange={(e)=>setCategory(e.target.value)}
                         value={category}
-                        required>
+                        required
+
+                        //{...register('category',{required:true})}
+                        >
                             <option>Select</option>
                             <hr></hr>
                             <option value="Men">Men</option>
@@ -54,20 +76,21 @@ const TailorSelect=()=>{
                     <label htmlFor="dt">Click to Select Dress Type</label><select type="text" className="form-control" id="dt" 
                         onChange={(e)=>setDresstype(e.target.value)}
                         value={dresstype}
-                        required
-                        >
-                            <option>Select</option>
-                            <hr/>
-                            <option value="Shirt">Shirt</option>
-                            <option value="Pant">Pant</option>
-                            <option value="crop top">Crop Top</option>
-                            <option value="Lehenga">Lehenga</option>
-                            <option value="Suite">Suite</option>                         
+                        required >
+                        {/* {...register('dresstype',{required:true})} */}
+
+                        
+                           {
+                               dressTypes.map((dress,ind)=>{
+                                   return (<option key={ind}>{dress}</option>)
+                               })
+                           }                     
                         </select><br/>
                     <label htmlFor="oc">Click to Select Occassion</label><select type="text" className="form-control" id="oc" 
                         onChange={(e)=>setOccassion(e.target.value)}
                         value={occassion}
                         required
+                        //{...register('occassion',{required:true})}
                         >
                             <option>Select</option>
                             <hr/>
@@ -79,7 +102,7 @@ const TailorSelect=()=>{
                             <option value="Kurthi">Kurthi</option>
                         </select>
                         
-                    <button type="submit" className="btn btn-success" style={{backgroundColor:'green',borderRadius:'30px',paddingLeft:'30px'}} onClick={post}>Submit</button><br/>
+                    <button type="submit" className="btn btn-success" style={{backgroundColor:'green',borderRadius:'30px',paddingLeft:'30px'}} onClick={post} >Submit</button><br/>
 
                 </form>
                 </div>
@@ -89,4 +112,3 @@ const TailorSelect=()=>{
     )
 }
 
-export default TailorSelect;
