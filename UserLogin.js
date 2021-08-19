@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { useHistory } from "react-router-dom";
+import { useHistory,Link, BrowserRouter, Switch,Route } from "react-router-dom";
 import {useSelector,useDispatch} from "react-redux";
 import { useForm } from "react-hook-form";
-import LoginCreator from './LoginCreator';
+import LoginCreator from '../redux/LoginCreator';
 import {bindActionCreators} from "redux";
-import start from '../images/start.jpg';
+
+
 
 function UserLogin()
 {
@@ -20,9 +21,11 @@ function UserLogin()
     
 
     const onFormSubmit=()=>{
-        let url=`http://localhost:8082/insert/${id}/${pw}`;
-        console.log(url)
-        fetch("http://localhost:8082/insert/"+id+"/"+pw,{
+
+        
+        let url=`http://localhost:8080/insert/${id}/${pw}`;
+        //console.log(url)
+        fetch("http://localhost:8080/insert/"+id+"/"+pw,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(obj)
@@ -33,7 +36,7 @@ function UserLogin()
             if(res.status==200){
                 
                 alert("Login successful")
-                history.push("/userportal")
+                history.push("/UserPage")
             }
             else {
                 alert("invalid Credentials")
@@ -45,10 +48,14 @@ function UserLogin()
                 payload:url
             })
         })
+
+       
 }
 
+
 return(
-    <div style={{backgroundImage:`url(${start})`}} >
+    <div  >
+         
          <form onSubmit={handleSubmit(onFormSubmit)}  style={{border:'1px solid blue',paddingLeft:"30px",width:"500px"}}>
         Enter your ID:<input type="number" id="id"  className="form-control"  
                 onChange={(e)=>setId(e.target.value)}
@@ -60,10 +67,21 @@ return(
                 value={pw}
                 required/><br/>
                 {errors.ad?.type==='required' && <p className="text-danger" style={{color:'red'}}>*password is required</p>}    
-                <button className="btn btn-warning" type="submit" >Login</button>    
+                <button className="btn btn-warning" type="submit" >Login</button> 
+
+
+                <nav className="nav-item "  style={{color:'brown'}}>
+         <Link className="nav-link" to="/ForgotPassword" >Forgot Password</Link>
+        </nav><br/><p>Or</p>
+
+        <nav className="nav-item "  style={{color:'brown'}}>
+         <Link className="nav-link" to="/ForgotId" >Forgot Id</Link>
+        </nav>
+    
+        
                
-                
-    </form> 
+            </form> 
+            
     </div>
     
     
