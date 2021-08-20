@@ -38,7 +38,19 @@ import com.app.project.model.User;
 			User user=userrepo.findByPassword(password);
 			return user;
 		}
+
+		public String getCategory(int id) {
+			// TODO Auto-generated method stub
+			String user=userrepo.userCategory(id);
+			return user;
+		}
 		
+//		public List getTailorId()
+//		{
+//			List ids=userrepo.tailorId();
+//			return ids;
+//		}
+//		
 		
 		
 		
@@ -46,12 +58,9 @@ import com.app.project.model.User;
 	}
 			
 		
-//		public User getUserEmail(String email) {
-//			User user=userrepo.findByEmail(email);
-//			return user;
-//		}
-			
-	
+		
 
 		
+
+
 
