@@ -22,6 +22,9 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 	
 	User findByPassword(String password);
 	
+	@Query("select u.usercategory from User u where u.id=?1")
+	public String userCategory(int id);
+	
 	
 
 //		User findById(long id);
