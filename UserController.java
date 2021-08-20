@@ -102,5 +102,23 @@ public class UserController {
 			}
 		}
 		return r;
+		
 }
+	@GetMapping(path="/get/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+	public User getByid(@PathVariable int id)
+	{
+		User u=userservice.getUserId(id);
+		return u;
+	}
+	
+	@PatchMapping("/updatePassword/{id}/{password}")
+	public ResponseEntity<User> updateEmployeePartially(@PathVariable int id, @PathVariable String password) {
+		try {
+			User user = userservice.getUserId(id);
+			user.setPassword(password);
+			return new ResponseEntity<User>(userservice.storeUser(user), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }
