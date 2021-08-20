@@ -16,6 +16,10 @@ import SecurityQuestionForm from "./SecurityQuestionForm";
 import ForgotPassword from "../UserComponents/ForgotPassword";
 import ForgotId from "../UserComponents/ForgotId";
 import PasswordResetPage from '../UserComponents/PasswordResetPage';
+import SortByAdmin from '../AdminComponents/SortByAdmin';
+import TailorPage from '../TailorComponents/TailorPage';
+import UpdateDetails from "../TailorComponents/UpdateDetails";
+import TailorSorting from '../TailorComponents/TailorSorting';
 
 export default function Routing() {
     return (
@@ -42,12 +46,14 @@ export default function Routing() {
         <nav className="nav-item "  style={{color:'brown'}}>
          <Link className="nav-link" to="/PortalPage" >Portal To Contact</Link>
         </nav>
+
+        
         
         
        
       </ul>
       </nav>
-      <IssuesNotification />
+      
 
       
      
@@ -80,12 +86,20 @@ export default function Routing() {
         <Route path="/ForgotId" component={ForgotId}></Route>
         <Route path="/ForgotPassword" component={ForgotPassword}></Route>
         <Route path="/PasswordResetPage/:userId" component={PasswordResetPage}></Route>
-
+        <Route path="/SortByAdmin" component={SortByAdmin}></Route>
+        <Route path="/TailorPage" component={TailorPage}></Route>
+        <Route path="/UpdateDetails" component={UpdateDetails}></Route>
+        <Route path="/TailorSorting" component={TailorSorting}></Route>
         
+     
+      
+      
 
       </Switch>
       </div>
-    </BrowserRouter>
+      </BrowserRouter>
+     
+  
         </div>
     )
 }
