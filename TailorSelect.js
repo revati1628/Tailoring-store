@@ -2,6 +2,7 @@
 import { useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector,useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 // import { useHistory } from "react-router";
 import { bindActionCreators } from "redux";
 import LoginCreator from "../redux/LoginCreator";
@@ -21,6 +22,7 @@ export default function TailorSelect()
     const {postTailorSelect,getTailorSelect}=bindActionCreators(LoginCreator,dispatch) 
 
     let  obj={sortid:sortid,category:category,dresstype:dresstype,occassion:occassion}
+    const history=useHistory();
     
     const [dressTypes,setDressTypes]=useState([])
     
@@ -48,10 +50,13 @@ export default function TailorSelect()
         
     return(
         <div className="container">
+            <button type="button" onClick={()=>{history.push('TailorPage')}} style={{float:"right"}}>Back</button>
             <div className="row">
+            
                 <div className="col-3" style={{border:'2px solid black'}}>
         <h6>Fill The Form To Chose What You Wish To Stich !</h6>
                 <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)}>
+                
                     <label htmlFor="tid">Enter your registered Tailor Id</label><input type="text" className="form-control"  id="tid"
                         onChange={(e)=>setSortid(e.target.value)}
                         value={sortid}
