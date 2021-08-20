@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { useHistory,Link, BrowserRouter, Switch,Route } from "react-router-dom";
 import {useSelector,useDispatch} from "react-redux";
 import { useForm } from "react-hook-form";
@@ -15,48 +15,90 @@ function UserLogin()
     const storeObj=useSelector((store)=>store)
     const [id,setId]=useState(storeObj.state.id);
     const [pw,setPw]=useState(storeObj.state.pw);
+    const [category,setCategory]=useState(" ");
 
     let history=useHistory();
     let obj={id:id,pw:pw}
     
 
-    const onFormSubmit=()=>{
+    function OnFormSubmit(){
 
         
-        let url=`http://localhost:8080/insert/${id}/${pw}`;
+            let url1=`http://localhost:8080/getcategoryById/${id}`;
+            fetch(`http://localhost:8080/getcategoryById/${id}`)
+            .then(res=>res.text())
+            .then(response=>{
+            setCategory(response)
+            console.log("category",url1);
+            console.log("data",response);
+            if(response === "Customer")
+            {
+                let url=`http://localhost:8080/insert/${id}/${pw}`;
         //console.log(url)
-        fetch("http://localhost:8080/insert/"+id+"/"+pw,{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(obj)
-        })
+                fetch("http://localhost:8080/insert/"+id+"/"+pw,{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(obj)
+                })
         
-        .then(res=>{
-            console.log("response",res)
-            if(res.status==200){
-                
-                alert("Login successful")
-                history.push("/UserPage")
-            }
-            else {
-                alert("invalid Credentials")
-            }
+                .then(res=>{
+                    console.log("response",res)
+                    if(res.status==200){
+                        
+                        alert("Login successful")
+                        history.push("/UserPage")
+                    }
+                    else {
+                        alert("invalid Credentials")
+                    }
+                })
+                .then(data=>{
+                dispatch({
+                    type:"validate",
+                    payload:url
+                })
+              })
+           }
+           else{
+
+            let url=`http://localhost:8080/insert/${id}/${pw}`;
+        //console.log(url)
+                fetch("http://localhost:8080/insert/"+id+"/"+pw,{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(obj)
+                })
+        
+                .then(res=>{
+                    console.log("response",res)
+                    if(res.status==200){
+                        
+                        alert("Login successful")
+                        history.push("/TailorPage")
+                    }
+                    else {
+                        alert("invalid Credentials")
+                    }
+                })
+                .then(data=>{
+                dispatch({
+                    type:"validate",
+                    payload:url
+                })
+              })
+
+           }
         })
-        .then(data=>{
-            dispatch({
-                type:"validate",
-                payload:url
-            })
-        })
-
-       
-}
-
-
+            
+        
+     }
+            
+            
+        
 return(
     <div  >
          
-         <form onSubmit={handleSubmit(onFormSubmit)}  style={{border:'1px solid blue',paddingLeft:"30px",width:"500px"}}>
+         <form onSubmit={handleSubmit(OnFormSubmit)}  style={{border:'1px solid blue',paddingLeft:"30px",width:"500px"}}>
         Enter your ID:<input type="number" id="id"  className="form-control"  
                 onChange={(e)=>setId(e.target.value)}
                 value={id}
