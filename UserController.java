@@ -53,6 +53,12 @@ public class UserController {
 		List<User> user=userservice.getUser();
 		return new ResponseEntity<List<User>>(user,HttpStatus.OK);
 	}
+	@GetMapping(path="/getcategoryById/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+	public String showCategory(@PathVariable int id) {
+		String user=userservice.getCategory(id);
+		return user;
+	}
+	
 	
 	@RequestMapping(path="/insert/{id}/{password}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> getById(@PathVariable int id,@PathVariable String password) {
