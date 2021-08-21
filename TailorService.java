@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.app.project.dao.TailorRepository;
 
 import com.app.project.model.Tailor;
+import com.app.project.model.User;
 
 
 @Service
@@ -19,6 +20,7 @@ public class TailorService {
 	
 	public Tailor storedata(Tailor tailor) {
 		tailorrepository.save(tailor);
+		
 		return tailor;
 	}
 	
@@ -31,4 +33,8 @@ public class TailorService {
 		// TODO Auto-generated method stub
 		tailorrepository.save(tailor);
 		}
+	public Tailor getTailorId(int tailorid) {
+		Tailor tailor=tailorrepository.findById(tailorid).orElse(new Tailor());
+		return tailor;
+	}
 }
