@@ -1,118 +1,167 @@
-import React,{useState} from 'react'
-import {BrowserRouter, Switch, useHistory,Link,Route} from "react-router-dom";
-//import UpdateDetails from "./UpdateDetails";
-export default function Tailor() {
+package com.app.project.model;
 
-    const[details,setDetails]=useState({
-        "tailorid":"",
-	    "shopname":"",
-	    "address":"",
-	    "contact":"",
-	    "workinghrs":"",
-	    "services":"",
-	    "courieroption":""
-    })
-    let history=useHistory();
-   
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Tailor {
+	
+	@Id
+	private int tailorid;
+	private String shopname;
+	private String address;
+	private long contact;
+	private String workinghrs;
+	private String services;
+	private String courieroption;
+	private String category;
+	private String dresstype;
+	
+	
+	
+	public Tailor() {
+		super();
+	}
 
 
-    const addDetails=(e)=>{
 
-        e.preventDefault();
-    
-        console.log("from form",details);
+	public Tailor(int tailorid, String shopname, String address, long contact, String workinghrs, String services,
+			String courieroption, String category, String dresstype) {
+		super();
+		this.tailorid = tailorid;
+		this.shopname = shopname;
+		this.address = address;
+		this.contact = contact;
+		this.workinghrs = workinghrs;
+		this.services = services;
+		this.courieroption = courieroption;
+		this.category = category;
+		this.dresstype = dresstype;
+	}
 
-        fetch('http://localhost:8080/storetailorDetails',{
-            method:'POST',
-            body:JSON.stringify(details),
-            headers:{'Content-Type':'application/json'},
-   
-                })
 
-           .then(response=>response.json())
-           .then(res=>{
-            setDetails(res)
-              
-               alert("Added");
-               history.push('/TailorPage');
-          })
-    }
-    return (
-        <div>
-            <h1>Tailor page</h1>
-           
-            <form onSubmit={addDetails}
-         style={{border:'1px solid blue',"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'darkgreen',alignItems:"center"}} >
 
-        <div className="mb-3">
-          <label htmlFor="tailorid" className="form-label">Tailor Id</label>
-          <input type="number" className="form-control"  id="tailorid" 
-          aria-describedby="tailorid" name="userId" 
-          onChange={(e)=>{setDetails({...details,tailorid:e.target.value})}} required />
-         </div>
-            
-        <div className="mb-3">
-          <label htmlFor="shopname" className="form-label">Shop Name</label>
-          <input type="text" className="form-control"  id="shopname" 
-          aria-describedby="shopname" name="shopname" 
-          onChange={(e)=>{setDetails({...details,shopname:e.target.value})}} required />
-         </div>
+	public int getTailorid() {
+		return tailorid;
+	}
 
-         <div className="mb-3">
-          <label htmlFor="address" className="form-label">Address</label>
-          <textarea type="text" className="form-control"  id="address" 
-          aria-describedby="address" name="address" 
-          onChange={(e)=>{setDetails({...details,address:e.target.value})}} required />
-         </div>
 
-         <div className="mb-3">
-          <label htmlFor="contact" className="form-label">Contact</label>
-          <input type="number" className="form-control"  id="contact" 
-          aria-describedby="contact" name="contact" 
-          onChange={(e)=>{setDetails({...details,contact:e.target.value})}} required />
-         </div>
 
-         <div className="mb-3">
-          <label htmlFor="workinghrs" className="form-label">working hrs</label>
-          <input type="text" className="form-control"  id="workinghrs" 
-          aria-describedby="workinghrs" name="workinghrs" 
-          onChange={(e)=>{setDetails({...details,workinghrs:e.target.value})}} required />
-         </div>
+	public void setTailorid(int tailorid) {
+		this.tailorid = tailorid;
+	}
 
-         <div className="mb-3">
-          <label htmlFor="services" className="form-label">services</label>
-          <textarea type="textarea" className="form-control"  id="services" 
-          aria-describedby="services" name="services" 
-          onChange={(e)=>{setDetails({...details,services:e.target.value})}} required />
-         </div>
 
-        
 
-         <div className="mb-3">
-          <label htmlFor="courieroption" className="form-label">courier option</label>
-          <select className="form-control"  id="courieroption" 
-          aria-describedby="courieroption" name="courieroption" 
-          onChange={(e)=>{setDetails({...details,courieroption:e.target.value})}} required>
-              <option value="select">select</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-          </select>
+	public String getShopname() {
+		return shopname;
+	}
 
-         </div>
 
-        
-        
-      
-        <button type="submit" className="btn btn-success"  
-         
-        >Submit</button>
-       
-         
-        
-      </form><br/>
-     
 
-     
-        </div>
-    )
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
+	}
+
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+
+	public long getContact() {
+		return contact;
+	}
+
+
+
+	public void setContact(long contact) {
+		this.contact = contact;
+	}
+
+
+
+	public String getWorkinghrs() {
+		return workinghrs;
+	}
+
+
+
+	public void setWorkinghrs(String workinghrs) {
+		this.workinghrs = workinghrs;
+	}
+
+
+
+	public String getServices() {
+		return services;
+	}
+
+
+
+	public void setServices(String services) {
+		this.services = services;
+	}
+
+
+
+	public String getCourieroption() {
+		return courieroption;
+	}
+
+
+
+	public void setCourieroption(String courieroption) {
+		this.courieroption = courieroption;
+	}
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+
+	public String getDresstype() {
+		return dresstype;
+	}
+
+
+
+	public void setDresstype(String dresstype) {
+		this.dresstype = dresstype;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Tailor [tailorid=" + tailorid + ", shopname=" + shopname + ", address=" + address + ", contact="
+				+ contact + ", workinghrs=" + workinghrs + ", services=" + services + ", courieroption=" + courieroption
+				+ ", category=" + category + ", dresstype=" + dresstype + "]";
+	}
+
+	
+	
+	
+	
+	
+	
+
 }
+
