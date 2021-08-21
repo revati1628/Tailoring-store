@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.project.model.Tailor;
-
+import com.app.project.model.User;
 import com.app.project.service.TailorService;
 
 
@@ -41,8 +42,8 @@ public class TailorController {
 	}
 	
 	@PutMapping("/updatetailor/{tailorid}")
-	public ResponseEntity<Tailor> updateEmployee(@PathVariable int tailorid,
-	 @RequestBody Tailor tailor) {
+	public ResponseEntity<Tailor> updateEmployee(@PathVariable int tailorid,@RequestBody Tailor tailor) 
+	{
 	     
 		tailor.setTailorid(tailor.getTailorid());
 		tailor.setShopname(tailor.getShopname());
@@ -53,7 +54,26 @@ public class TailorController {
 		tailor.setServices(tailor.getServices());
 		tailorservice.updateData(tailor);
 	     
-	     return new ResponseEntity<Tailor>(HttpStatus.OK);
+	   return new ResponseEntity<Tailor>(HttpStatus.OK);
+	}
+	
+	@PatchMapping("/updateDetails/{tailorid}/{shopname}/{address}/{contact}/{workinghrs}/{services}/{courieroption}")
+	public ResponseEntity<Tailor> updateUserPartially(@PathVariable int tailorid, @PathVariable String shopname,
+			@PathVariable String address,@PathVariable long contact,@PathVariable String workinghrs,
+			@PathVariable String services,@PathVariable String courieroption )
+			 {
+		try {
+			Tailor tailor = tailorservice.getTailorId(tailorid);
+			tailor.setAddress(address);
+			tailor.setShopname(shopname);
+			tailor.setContact(contact);
+			tailor.setWorkinghrs(workinghrs);
+			tailor.setServices(services);
+			tailor.setCourieroption(courieroption);
+			return new ResponseEntity<Tailor>(tailorservice.storedata(tailor), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 }
