@@ -2,26 +2,25 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import start from "../images/start.jpg";
+import AdminFeedback from "./AdminFeedback";
+import ImageUpload from "./ImageUpload";
+import TailorSelect from "./TailorSelect";
 
-function UserPortal(){
+function UserPortal(props){
+    let trigger=props.setTrigger;
+    const [buttonPopup,setButtonPopup]=useState(false);
     console.log("user portal");
-    let history=useHistory();
-    const [ability,setAbility]=useState();
-   const done=()=>{
 
-        alert("thanks for submitting");
-        setAbility(false);
-        // history.push('/view');
-   }
     return(
     
-    <div style={{backgroundImage:`url(${start})`,textAlign:'center'}} >
-    <h1 style={{color:'goldenrod',fontFamily:'sans-serif'}}>Welcome To Your Portal</h1><br/>
-   <h2>Submit your idea in detailed description in the below box</h2><br/>
-   <textarea style={{height:'200px',width:'500px'}} /><br/>
-   <button type="submit" className="btn btn-super" style={{backgroundColor:'greenyellow',borderRadius:'30px'}} onClick={done}>Submit</button>
-   </div>
-    )
+    <div style={{backgroundImage:`url(${start})`,textAlign:'center'}} ><button type="button"  onClick={()=>setButtonPopup(true)}>Click to give us Feedback!</button>       
 
+   <AdminFeedback trigger={buttonPopup} setTrigger={setButtonPopup}/>
+   <TailorSelect />
+   <ImageUpload />
+   </div>
+   
+    )
+    
 }
 export default UserPortal;
