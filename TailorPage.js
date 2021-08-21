@@ -30,6 +30,11 @@ export default function TailorPage() {
         <nav className="nav-item "  style={{color:'brown'}}>
          <Link className="nav-link" to="/UpdateDetails" >Update Details</Link>
         </nav>
+
+         <nav className="nav-item "  style={{color:"yellowgreen"}}>
+         <Link className="nav-link" to="/UploadPatterns" >Upload Patterns</Link>
+        </nav>
+        
         
         </div>
     )
