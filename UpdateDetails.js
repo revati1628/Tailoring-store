@@ -15,16 +15,21 @@ export default function UpdateDetails() {
 	    "courieroption":""
     })
 
-     const handleSubmit=async e=>{
+     const handleSubmit=(e)=>{
         e.preventDefault();
-        await axios.put(`http://localhost:8080/updatetailor/${details.tailorid}`,details)
-        //history.push("/");
-        setDetails(details);
-        console.log("details",details);
+        fetch(`http://localhost:8080/updateDetails/${details.tailorid}/${details.shopname}/${details.address}/${details.contact}/${details.workinghrs}/${details.services}/${details.courieroption}`,{
+          method:'PATCH',
+          body: JSON.stringify({shopname:details.shopname,address:details.address,contact:details.contact,
+          workinghrs:details.workinghrs,services:details.services,courieroption:details.courieroption})
+        })
+        .then((response) => response.json())
+        .then(res=>console.log("updated data",res))
+        alert("Details updated")
+        history.push('/TailorPage');
 
        }
 
-    //console.log("hai");
+    
     return (
         <div>
             <h1>UpdateDetails</h1>
