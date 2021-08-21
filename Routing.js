@@ -20,6 +20,7 @@ import SortByAdmin from '../AdminComponents/SortByAdmin';
 import TailorPage from '../TailorComponents/TailorPage';
 import UpdateDetails from "../TailorComponents/UpdateDetails";
 import TailorSorting from '../TailorComponents/TailorSorting';
+import UploadPatterns from '../TailorComponents/UploadPatterns';
 
 export default function Routing() {
     return (
@@ -90,6 +91,7 @@ export default function Routing() {
         <Route path="/TailorPage" component={TailorPage}></Route>
         <Route path="/UpdateDetails" component={UpdateDetails}></Route>
         <Route path="/TailorSorting" component={TailorSorting}></Route>
+        <Route path="/UploadPatterns" component={UploadPatterns}></Route>
         
      
       
