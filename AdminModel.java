@@ -9,6 +9,7 @@ import javax.persistence.Table;
 public class AdminModel {
 	@Id
 	private int orderid;
+	private int tailorid;
 	private int rate;
 	private String likes;
 	private String improve;
@@ -17,13 +18,28 @@ public class AdminModel {
 		super();
 	}
 
-	public AdminModel(int orderid, int rate, String likes, String improve) {
+	public AdminModel(int orderid, int tailorid, int rate, String likes, String improve) {
 		super();
 		this.orderid = orderid;
+		this.tailorid = tailorid;
 		this.rate = rate;
 		this.likes = likes;
 		this.improve = improve;
 	}
+
+
+
+	public int getTailorid() {
+		return tailorid;
+	}
+
+
+
+	public void setTailorid(int tailorid) {
+		this.tailorid = tailorid;
+	}
+
+
 
 	public int getOrderid() {
 		return orderid;
@@ -59,7 +75,10 @@ public class AdminModel {
 
 	@Override
 	public String toString() {
-		return "adminModel [orderid=" + orderid + ", rate=" + rate + ", likes=" + likes + ", improve=" + improve + "]";
+		return "AdminModel [orderid=" + orderid + ", tailorid=" + tailorid + ", rate=" + rate + ", likes=" + likes
+				+ ", improve=" + improve + "]";
 	}
+
+	
 	
 }
