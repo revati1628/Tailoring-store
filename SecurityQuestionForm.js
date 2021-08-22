@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router-dom';
+import '../App.css';
 
-export default function SecurityQuestionForm() {
-
+export default function SecurityQuestionForm(props) {
+    let setTrigger=props.setTrigger;
 
     let history=useHistory();
     const[security,setSecurity]=useState({
@@ -17,7 +18,7 @@ export default function SecurityQuestionForm() {
     const handleSubmit=(e)=>{
         e.preventDefault();
 
-        fetch('http://localhost:8080/insertSecurityQuestions',{
+        fetch('http://localhost:8087/insertSecurityQuestions',{
             method:'POST',
             body:JSON.stringify(security),
             headers:{'Content-Type':'application/json'},
@@ -34,11 +35,15 @@ export default function SecurityQuestionForm() {
     }
 
     
-    return (
+    return (props.trigger)?(
+        <div className="popupsec">
+            <div className="popupsec-inner">
         <form onSubmit={handleSubmit}
-         style={{border:'1px solid blue',"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'darkgreen',alignItems:"center"}} >
+        
+         style={{border:'1px solid blue',"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'burlywood',alignItems:"center"}} >
 
-            
+<button className="close-btn" onClick={()=>setTrigger(false)} style={{color:'white',borderRadius:'100px',backgroundColor:'red'}}>X</button>
+                {props.children}
          <div className="mb-3">
           <label htmlFor="userId" className="form-label">user Id</label>
           <input type="number" className="form-control"  id="userId" 
@@ -61,10 +66,8 @@ export default function SecurityQuestionForm() {
           <input type="text" className="form-control"  id="answer1" 
           aria-describedby="answer1" name="answer1" 
           onChange={(e)=>{setSecurity({...security,securityanswer1:e.target.value})}} required />
-          <div id="answer1" className="form-text">We'll never share your answer with anyone else.</div>
+          <div id="answer1" className="form-text" style={{color:'burlywood'}}>We'll never share your answer with anyone else.</div>
         </div>
-
-
          {/* question 2     */}
          <div className="mb-3">
           <label htmlFor="question2" className="form-label">Security Question 2</label>
@@ -78,7 +81,7 @@ export default function SecurityQuestionForm() {
           <input type="text" className="form-control"  id="answer2" 
           aria-describedby="answer2" name="answer2" 
           onChange={(e)=>{setSecurity({...security,securityanswer2:e.target.value})}} required />
-          <div id="answer2" className="form-text">We'll never share your answer with anyone else.</div>
+          <div id="answer2" className="form-text" style={{color:'burlywood'}}>We'll never share your answer with anyone else.</div>
         </div>
 
          {/* question 3     */}
@@ -94,7 +97,7 @@ export default function SecurityQuestionForm() {
           <input type="text" className="form-control"  id="answer3" 
           aria-describedby="answer3" name="answer3" 
           onChange={(e)=>{setSecurity({...security,securityanswer3:e.target.value})}} required />
-          <div id="answer3" className="form-text">We'll never share your answer with anyone else.</div>
+          <div id="answer3" className="form-text" style={{color:'burlywood'}}>We'll never share your answer with anyone else.</div>
         </div>
 
         <div className="mb-3">
@@ -113,5 +116,7 @@ export default function SecurityQuestionForm() {
          
         
       </form>
-    )
+      </div>
+      </div>
+    ):'';
 }
