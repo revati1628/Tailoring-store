@@ -17,6 +17,7 @@ const AdminFeedback=(props)=>{
 
     const storeObj=useSelector((store)=>store)
     const [orderid,setOrderid]=useState(storeObj.state.orderid)
+    const [tailorid,setTailorid]=useState(storeObj.state.tailorid)
     const [improve,setImprove]=useState(storeObj.state.improve)
     const [likes,setLikes]=useState(storeObj.state.likes)
     const [rate,setRate]=useState(storeObj.state.rate)
@@ -24,7 +25,7 @@ const AdminFeedback=(props)=>{
     const dispatch=useDispatch();
     const{postFeedback,getFeedback}=bindActionCreators(LoginCreator,dispatch)
 
-    let obj={orderid:orderid,improve:improve,likes:likes,rate:rate}
+    let obj={orderid:orderid,tailorid:tailorid,improve:improve,likes:likes,rate:rate}
     const post=()=>{
         console.log(obj);
         postFeedback(obj);
@@ -45,6 +46,9 @@ const AdminFeedback=(props)=>{
                 <label htmlFor="orderid">Enter your order id to give us feedback!</label><input type="number" id="orderid" 
                     onChange={(e)=>setOrderid(e.target.value)}
                     value={orderid} className="form-control"></input>
+                 <label htmlFor="tailorid">Enter the tailor id who took your order</label><input type="number" id="tailorid" 
+                    onChange={(e)=>setTailorid(e.target.value)}
+                    value={tailorid} className="form-control"></input>
                 <label htmlFor="likes">Please let us know what you like about our service</label><input type="text" id="likes" className="form-control"
                     onChange={(e)=>setLikes(e.target.value)}
                     value={likes}
