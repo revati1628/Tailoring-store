@@ -1,19 +1,20 @@
+ 
 import {useSelector,useDispatch} from "react-redux";
-import LoginCreator from '../redux/LoginCreator';
+import LoginCreator from './LoginCreator';
 import {bindActionCreators} from "redux";
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import {BrowserRouter,Link,Switch,Route} from "react-router-dom";
 import {React} from 'react';
+import SecurityQuestionForm from "./SecurityQuestionForm";
 import FeedbackForm from "../AdminComponents/FeedbackForm";
 import SecurityQuestionForm from "./SecurityQuestionForm";
 
-function Register() {
+function Register(props) {
   let {register,handleSubmit,formState:{errors}}=useForm();
-
-  
-  
+  let trigger=props.setTrigger;
+  const [buttonPopup,setButtonPopup]=useState(false);
   const storeObj=useSelector((store)=>store)
   const [id,setId]=useState(storeObj.state.id)
   const [firstname,setFirstname]=useState(storeObj.state.firstname)
@@ -137,9 +138,14 @@ function Register() {
     
         {/* <SecurityQuestionForm /> */}
 
-        <nav className="nav-item "  style={{color:'brown'}}>
-         <Link className="nav-link" to="/SecurityQuestionForm" >SecurityQuestionForm</Link>
-        </nav>
+        <div style={{textAlign:'center'}} >
+          <button type="button"  onClick={()=>setButtonPopup(true)} required >Security Questions</button>       
+          <SecurityQuestionForm trigger={buttonPopup} setTrigger={setButtonPopup}/>
+        </div>
+
+        {/* <nav className="nav-item "  style={{color:'brown'}}>
+         <Link className="nav-link" to="/SecurityQuestionForm" required >SecurityQuestionForm</Link>
+        </nav> */}
     <button type="submit" className="btn btn-success" style={{backgroundColor:'green',borderRadius:'30px',paddingLeft:'30px'}} >Sign Up</button><br/>
     
     
