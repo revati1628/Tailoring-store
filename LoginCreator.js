@@ -152,6 +152,153 @@ const uploadOccasion=(occassion)=>{
     }
 }
 
+const uploadTopamount=(topamount)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"topamount",
+            payload:topamount
+        })
+    }
+}
+
+const uploadBottomamount=(bottomamount)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"bottomamount",
+            payload:bottomamount
+        })
+    }
+}
+
+const uploadChest=(chest)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"chest",
+            payload:chest
+        })
+    }
+}
+
+const uploadNeck=(neck)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"neck",
+            payload:neck
+        })
+    }
+}
+
+const uploadKneelength=(kneelength)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"kneelength",
+            payload:kneelength
+        })
+    }
+}
+
+const uploadTopfabric=(topfabric)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"topfabric",
+            payload:topfabric
+        })
+    }
+}
+
+const uploadBottomfabric=(bottomfabric)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"bottomfabric",
+            payload:bottomfabric
+        })
+    }
+}
+
+const uploadTopduration=(topduration)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"topduration",
+            payload:topduration
+        })
+    }
+}
+
+const uploadBottomduration=(bottomduration)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"bottomduration",
+            payload:bottomduration
+        })
+    }
+}
+
+const uploadHip=(hip)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"hip",
+            payload:hip
+        })
+    }
+}
+
+const uploadComments=(comments)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"comments",
+            payload:comments
+        })
+    }
+}
+
+const uploadShoulderlength=(shoulderlength)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"shoulderlength",
+            payload:shoulderlength
+        })
+    }
+}
+
+const uploadToplength=(toplength)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"toplength",
+            payload:toplength
+        })
+    }
+}
+
+const uploadTopwaist=(topwaist)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"topwaist",
+            payload:topwaist
+        })
+    }
+}
+
+const postOrder=(obj)=>{
+    return(dispatch)=>{
+        fetch("http://localhost:8087/giveorder",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(obj)
+        })
+        .then(res=>{
+            console.log(res)
+            console.log("customer has placed the order ")
+        })
+        .then(data=>{
+            dispatch({
+                type:"post",
+                payload:obj
+            })
+        })
+    }
+}
+
+
 const uploadImageFile=(data)=>{
     return(dispatch)=>{
         dispatch({
