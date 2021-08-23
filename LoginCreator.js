@@ -437,5 +437,7 @@ export default {uploadid,uploadfirstname,uploadlastname,uploadgender,uploaduserc
                 uploademail,uploadpassword,getuserInfo,postuserInfo,
                 uploadImprove,uploadOrderId,uploadRate,uploadLikes,postFeedback,getFeedback,
                 uploadImageFile,postImage,
+                 uploadTopamount,uploadBottomamount,uploadTopfabric,uploadBottomfabric,uploadTopduration,uploadBottomduration,uploadTopwaist,
+                uploadToplength,uploadShoulderlength,uploadNeck,uploadChest,uploadHip,uploadKneelength,uploadComments, postOrder,
                 uploadSortId,uploadDressType,uploadCategory,uploadOccasion,postTailorSelect,getTailorSelect
                 };
