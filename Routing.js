@@ -2,7 +2,7 @@ import React from 'react'
 import Register from './Register';
 import {BrowserRouter,Link,Switch,Route} from "react-router-dom";
 //componets importing
-import UserPage from "../UserComponents/UserPage";
+import UserPage from "../CustomerComponents/UserPage";
 import UserPortal from './UserPortal';
 import UserLogin from './UserLogin';
 import AdminPage from '../AdminComponents/AdminPage';
@@ -21,44 +21,23 @@ import TailorPage from '../TailorComponents/TailorPage';
 import UpdateDetails from "../TailorComponents/UpdateDetails";
 import TailorSorting from '../TailorComponents/TailorSorting';
 import UploadPatterns from '../TailorComponents/UploadPatterns';
-
+import OrderDetails from "../CustomerComponents/OrderDetails";
+import Navbar from '../Styling/Navbar';
+import Description from "../Styling/Description";
+import Footer from "../Styling/Footer";
+import SolutionsForm from '../AdminComponents/SolutionsForm'
+import TailorSearch from '../CustomerComponents/TailorSearch';
+import PlaceOrder from '../CustomerComponents/PlaceOrder';
+import ViewOrders from '../AdminComponents/ViewOrders';
+import CustomerOrders from '../AdminComponents/CustomerOrders';
 export default function Routing() {
     return (
-        <div>
-            <h1 style={{color:'purple',height:'150px',textAlign:'center',backgroundColor:'grey'}}>Welcome to TailorPlaza<br/><p style={{color:'silver'}}></p> 
-    
-    </h1>
+       
     
     <BrowserRouter>
-    <div >
-      <nav className="d-flex">
-      <ul className="nav bg-light justify-content-center" style={{marginLeft:'200px'}}>
-        <nav className="nav-item" style={{color:'brown'}}>
-        Click here to register in the contest  :  <Link className="nav-link" to="/Register">Registration Portal</Link>
-        <p style={{color:'skyblue'}}><marquee>***After registration, you can login into your portal and also view the list of teams registered for the contest !***</marquee></p>
-        </nav>
-        <nav className="nav-item "  style={{color:'brown'}}>
-         Already a user :  <Link className="nav-link" to="/UserLogin" >UserLogin</Link>
-        </nav>
-        <nav className="nav-item "  style={{color:'brown'}}>
-         <Link className="nav-link" to="/AdminLogin" >AdminLogin</Link>
-        </nav>
-
-        <nav className="nav-item "  style={{color:'brown'}}>
-         <Link className="nav-link" to="/PortalPage" >Portal To Contact</Link>
-        </nav>
-
-        
-        
-        
-       
-      </ul>
-      </nav>
-      
-
-      
-     
-      <Switch>
+    
+        <Navbar />
+       <Switch>
         <Route path="/Register" component={Register}>
             <Register  />
         </Route>
@@ -92,16 +71,26 @@ export default function Routing() {
         <Route path="/UpdateDetails" component={UpdateDetails}></Route>
         <Route path="/TailorSorting" component={TailorSorting}></Route>
         <Route path="/UploadPatterns" component={UploadPatterns}></Route>
+        <Route path="/OrderDetails" component={OrderDetails}></Route>
+        <Route path="/SolutionsForm" component={SolutionsForm}></Route>
+        <Route path="/TailorSearch" component={TailorSearch}></Route>
+        <Route path="/PlaceOrder/:tailorid" component={PlaceOrder}></Route>
+        <Route path="/ViewOrders" component={ViewOrders}></Route>
+        <Route path="/CustomerOrders" component={CustomerOrders}></Route>
         
      
       
       
 
       </Switch>
-      </div>
+      
+      <Description />
+      <Footer />
+      
       </BrowserRouter>
      
   
-        </div>
+       
     )
 }
+
