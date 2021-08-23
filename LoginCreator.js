@@ -215,20 +215,20 @@ const uploadBottomfabric=(bottomfabric)=>{
     }
 }
 
-const uploadTopduration=(topduration)=>{
+const uploadexpectedDateT=(expectedDateT)=>{
     return(dispatch)=>{
         dispatch({
-            type:"topduration",
-            payload:topduration
+            type:"expectedDateT",
+            payload:expectedDateT
         })
     }
 }
 
-const uploadBottomduration=(bottomduration)=>{
+const uploadexpectedDateB=(expectedDateB)=>{
     return(dispatch)=>{
         dispatch({
-            type:"bottomduration",
-            payload:bottomduration
+            type:"expectedDateB",
+            payload:expectedDateB
         })
     }
 }
@@ -280,7 +280,7 @@ const uploadTopwaist=(topwaist)=>{
 
 const postOrder=(obj)=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/giveorder",{
+        fetch("http://localhost:8080/giveorder",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(obj)
@@ -310,7 +310,7 @@ const uploadImageFile=(data)=>{
 
 const postImage=(obj)=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/addimage",{
+        fetch("http://localhost:8080/addimage",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(obj)
@@ -330,7 +330,7 @@ const postImage=(obj)=>{
 
 const postTailorSelect=(obj)=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/tailorselect",{
+        fetch("http://localhost:8080/tailorselect",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(obj)
@@ -350,7 +350,7 @@ const postTailorSelect=(obj)=>{
 
 const getTailorSelect=()=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/tsget")
+        fetch("http://localhost:8080/tsget")
         .then(res=>res.json())
         .then(data=>{
             dispatch({
@@ -364,7 +364,7 @@ const getTailorSelect=()=>{
 
 const postFeedback=(obj)=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/review",{
+        fetch("http://localhost:8080/review",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(obj)
@@ -385,7 +385,7 @@ const postFeedback=(obj)=>{
 
 const getFeedback=()=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/feedback")
+        fetch("http://localhost:8080/feedback")
         .then(res=>res.json())
         .then(data=>{
             dispatch({
@@ -399,7 +399,7 @@ const getFeedback=()=>{
 
 const postuserInfo=(obj)=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/insert",{
+        fetch("http://localhost:8080/insert",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(obj)
@@ -418,7 +418,7 @@ const postuserInfo=(obj)=>{
 }
 const getuserInfo=()=>{
     return(dispatch)=>{
-        fetch("http://localhost:8087/get")
+        fetch("http://localhost:8080/get")
         .then(res=>res.json())
         .then(data=>{
             dispatch({
@@ -437,7 +437,7 @@ export default {uploadid,uploadfirstname,uploadlastname,uploadgender,uploaduserc
                 uploademail,uploadpassword,getuserInfo,postuserInfo,
                 uploadImprove,uploadOrderId,uploadRate,uploadLikes,postFeedback,getFeedback,
                 uploadImageFile,postImage,
-                 uploadTopamount,uploadBottomamount,uploadTopfabric,uploadBottomfabric,uploadTopduration,uploadBottomduration,uploadTopwaist,
+                 uploadTopamount,uploadBottomamount,uploadTopfabric,uploadBottomfabric,uploadexpectedDateT,uploadexpectedDateB,uploadTopwaist,
                 uploadToplength,uploadShoulderlength,uploadNeck,uploadChest,uploadHip,uploadKneelength,uploadComments, postOrder,
                 uploadSortId,uploadDressType,uploadCategory,uploadOccasion,postTailorSelect,getTailorSelect
                 };
