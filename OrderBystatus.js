@@ -48,17 +48,19 @@ const Approved=()=>{
      }
     return (
         <div>
+           <div style={{marginLeft:'400px',marginTop:'20px'}}>
             <button type="submit" className="btn btn-outline-success" onClick={Completed}>Completed Orders</button><br/>
-            <button type="submit" className="btn btn-outline-info" onClick={Approved}>Approved Orders </button>
-            <button type="submit" className="btn btn-outline-warning" onClick={ActiveOrders}>Active Orders</button>
+            <button type="submit" className="btn btn-outline-info" style={{marginTop:'20px'}} onClick={Approved}>Approved Orders </button><br/>
+            <button type="submit" className="btn btn-outline-warning" style={{marginTop:'20px'}} onClick={ActiveOrders}>Active Orders</button>
 
             <table>
             {/* <h1>Orders by customer</h1> */}
             <thead style={{backgroundColor:"ThreeDLightShadow"}}>
                 <tr>
                     
-                    <th>Order Id</th>
+                    <th style={{marginTop:'20px'}}>Order Id</th>
                 </tr>
+                
                 
             </thead>
             
@@ -158,7 +160,7 @@ const Approved=()=>{
             </tbody>
         </table><hr/><br/>
         
-                    <h1>Change Status</h1>
+                    <h3>Change Status</h3>
 
                     <ApproveOrder />
         </div>
