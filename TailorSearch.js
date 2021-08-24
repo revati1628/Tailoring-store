@@ -50,13 +50,15 @@ export default function TailorSearch() {
 }
     return (
         <div style={{alignItems:"center",paddingLeft:"400px",paddingRight:"40px"}}>
-            <button type="button" className="btn btn-outline-primary" style={{float:"right",paddingRight:"10px"}}
+              <button type="button" className="btn btn-outline-primary" style={{float:"right",paddingRight:"10px",marginTop:'10px'}}
+            
             onClick={back}>Back</button>
-            <h1>Tailor Search</h1>
+            
 
 
             <form onSubmit={HandleSearch}
-         style={{"width":500,fontFamily:'sans-serif',color:'darkgreen'}} >
+         style={{"width":500,fontFamily:'sans-serif',color:'black'}} >
+              <h3  style={{color:'black',textAlign:'center',marginBottom:'20px',marginTop:'20px'}}>SEARCH FOR TAILOR</h3>
 
         <div className="mb-3">
           <label htmlFor="address" className="form-label">Address</label>
