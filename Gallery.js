@@ -18,7 +18,7 @@ export default function GetImage() {
   return (
     <div>
       {/* <Routing /> */}
-      <div className="row">
+     <div className="row" style={{marginTop:'50px',marginLeft:'70px'}}>
        { img.map((pro,ind) =>
             <div className="col-md-4" key={ind}>
               <div className="block-img">
