@@ -17,7 +17,8 @@ export default function CheckOrders() {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit(handleCheck)}>
+           <form onSubmit={handleCheck} style={{"padding":15,"width":500,fontFamily:'sans-serif',color:'black',marginLeft:'400px',marginTop:'20px'}} >
+            <h3  style={{color:'black',textAlign:'center',marginBottom:'20px'}}>CHECK YOUR ORDER</h3>
                 Enter tailor id<input type="number" value={tailorid}
                 onChange={(e)=>{setTailorid(e.target.value)}}
                 />
