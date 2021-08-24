@@ -5,8 +5,8 @@ import { useForm} from "react-hook-form";
 import {useSelector,useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
 import {bindActionCreators} from "redux";
-import LoginCreator from './LoginCreator';
-import UserPortal from './UserPortal';
+import LoginCreator from '../redux/LoginCreator';
+import UserPage from '../CustomerComponents/UserPage';
 import '../App.css';
 
 
@@ -35,11 +35,14 @@ const AdminFeedback=(props)=>{
     const onFormSubmit=()=>{
         alert("thanks for giving us feedback!!!")
     }
+    const logout=()=>{
+        history.push('/')
+    }
 
     return(props.trigger)?(
         <div className="popup">
             <div className="popup-inner">
-            <button className="close-btn" onClick={()=>history.push('/')} style={{color:'white',borderRadius:'100px',backgroundColor:'red'}}>X</button>
+            <button type="button" className="close-btn" onClick={logout} style={{color:'white',borderRadius:'100px',backgroundColor:'red'}}>X</button>
                 {props.children}
             <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)} >
                 <label htmlFor="orderid">Enter your order id to give us feedback!</label><input type="number" id="orderid" 
