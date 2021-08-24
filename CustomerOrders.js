@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from "axios";
 import {useHistory} from 'react-router-dom'
+import { Table } from 'react-bootstrap';
 export default function CustomerOrders() {
 
     const [orders,setOrders]=useState([]);
@@ -20,9 +21,10 @@ export default function CustomerOrders() {
         <>
         <button type="button" className="btn btn-outline-primary" style={{float:"right",paddingRight:"10px"}}
             onClick={back}>Back</button>
-        <h1>Top Details</h1>
-        <table>
-            {/* <h1>Orders by customer</h1> */}
+        <h3 style={{marginLeft:'20px'}}>Top Details</h3>
+        <Table style={{marginTop:'20px',marginLeft:'10px',marginRight:'10px'}}>
+
+           
             <thead style={{backgroundColor:"ThreeDLightShadow"}}>
                 <tr>
                     <th>Tailor Id</th>
@@ -65,9 +67,11 @@ export default function CustomerOrders() {
                 }
 
             </tbody>
-        </table><hr/><br/>
-        <h1>Bottom Details</h1>
-        <table >
+            </Table>
+        <hr/><br/>
+        <h3 style={{marginLeft:'20px'}}>Bottom Details</h3>
+        {/* <table style={{border:'solid black',marginLeft:'20px',padding:'5px',borderSpacing:'0 15px'}}> */}
+        <Table style={{marginTop:'20px',marginLeft:'10px',marginRight:'10px'}}>
                 <thead style={{backgroundColor:"WindowFrame"}}>
                     <tr>
                     <th>Bottom Amount</th>
@@ -95,7 +99,7 @@ export default function CustomerOrders() {
                 }
 
                 </tbody>
-        </table>
+                </Table>
         </>
     )
 }
