@@ -1,4 +1,5 @@
 
+
 import { useEffect, useState } from "react";
 import { useForm} from "react-hook-form";
 import {useSelector,useDispatch} from "react-redux";
@@ -35,12 +36,10 @@ const AdminFeedback=(props)=>{
         alert("thanks for giving us feedback!!!")
     }
 
-    console.log(setTrigger)
-
     return(props.trigger)?(
         <div className="popup">
             <div className="popup-inner">
-            <button className="close-btn" onClick={()=>setTrigger(false)} style={{color:'white',borderRadius:'100px',backgroundColor:'red'}}>X</button>
+            <button className="close-btn" onClick={()=>history.push('/')} style={{color:'white',borderRadius:'100px',backgroundColor:'red'}}>X</button>
                 {props.children}
             <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)} >
                 <label htmlFor="orderid">Enter your order id to give us feedback!</label><input type="number" id="orderid" 
