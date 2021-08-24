@@ -27,10 +27,11 @@ export default function ApproveOrder() {
     return (
         <div>
         
-      <h2 style={{textAlign:'center',marginTop:'20px'}}>Update Status</h2>
     
-    <form onSubmit={handleSubmit}
- style={{"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'black',alignItems:"center",marginLeft:'370px',marginBottom: '20px'}} >
+    
+     <form onSubmit={handleSubmit}
+ style={{"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'black',alignItems:"center",marginBottom: '20px'}} >
+     <h3  style={{color:'black',textAlign:'center',marginBottom:'20px',marginTop:'10px'}}>UPDATE STATUS</h3>
 
         <div className="mb-3">
           <label htmlFor="orderid" className="form-label">Order Id</label>
