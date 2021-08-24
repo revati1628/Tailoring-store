@@ -215,20 +215,20 @@ const uploadBottomfabric=(bottomfabric)=>{
     }
 }
 
-const uploadexpectedDateT=(expectedDateT)=>{
-    return(dispatch)=>{
-        dispatch({
-            type:"expectedDateT",
-            payload:expectedDateT
-        })
-    }
-}
+// const uploadexpectedDateT=(expectedDateT)=>{
+//     return(dispatch)=>{
+//         dispatch({
+//             type:"expectedDateT",
+//             payload:expectedDateT
+//         })
+//     }
+// }
 
-const uploadexpectedDateB=(expectedDateB)=>{
+const uploadexpectedDate=(expectedDate)=>{
     return(dispatch)=>{
         dispatch({
-            type:"expectedDateB",
-            payload:expectedDateB
+            type:"expectedDate",
+            payload:expectedDate
         })
     }
 }
@@ -274,6 +274,31 @@ const uploadTopwaist=(topwaist)=>{
         dispatch({
             type:"topwaist",
             payload:topwaist
+        })
+    }
+}
+
+const uploadApprovalstatus=(approvalstatus)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"approvalstatus",
+            payload:approvalstatus
+        })
+    }
+}
+const uploadCustomerid=(customerid)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"customerid",
+            payload:customerid
+        })
+    }
+}
+const uploadmodelid=(modelid)=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"modelid",
+            payload:modelid
         })
     }
 }
@@ -434,10 +459,10 @@ const getuserInfo=()=>{
 
 
 export default {uploadid,uploadfirstname,uploadlastname,uploadgender,uploadusercategory,uploaddob,uploadcontact,
-                uploademail,uploadpassword,getuserInfo,postuserInfo,
+                uploademail,uploadpassword,getuserInfo,postuserInfo,uploadCustomerid,
                 uploadImprove,uploadOrderId,uploadRate,uploadLikes,postFeedback,getFeedback,
-                uploadImageFile,postImage,
-                 uploadTopamount,uploadBottomamount,uploadTopfabric,uploadBottomfabric,uploadexpectedDateT,uploadexpectedDateB,uploadTopwaist,
+                uploadImageFile,postImage,uploadApprovalstatus,uploadmodelid,
+                 uploadTopamount,uploadBottomamount,uploadTopfabric,uploadBottomfabric,uploadexpectedDate,uploadTopwaist,
                 uploadToplength,uploadShoulderlength,uploadNeck,uploadChest,uploadHip,uploadKneelength,uploadComments, postOrder,
                 uploadSortId,uploadDressType,uploadCategory,uploadOccasion,postTailorSelect,getTailorSelect
                 };
