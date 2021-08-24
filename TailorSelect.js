@@ -49,13 +49,14 @@ export default function TailorSelect()
     }
         
     return(
-        <div className="container">
+        <div className="container" style={{marginLeft:'400px'}}>
             <button type="button" onClick={()=>{history.push('TailorPage')}} style={{float:"right"}}>Back</button>
             <div className="row">
             
-                <div className="col-3" style={{border:'2px solid black'}}>
-        <h6>Fill The Form To Chose What You Wish To Stich !</h6>
-                <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)}>
+                <div className="col-3" >
+       
+                 <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)} style={{paddingRight:'30px',paddingLeft:'30px',width:"500px",marginBottom: '20px',paddingBottom:'20px',paddingTop:'20px',marginTop:'20px',fontFamily:'sans-serif'}}>
+                <h2 style={{textAlign:'center'}}>Fill The Form To Chose What You Wish To Stitch !</h2>
                 
                     <label htmlFor="tid">Enter your registered Tailor Id</label><input type="text" className="form-control"  id="tid"
                         onChange={(e)=>setSortid(e.target.value)}
