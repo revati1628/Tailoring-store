@@ -24,8 +24,12 @@ export default function AdminPage() {
         <nav className="nav-item "  style={{marginTop:'5px',textAlign:'center'}}>
          <Link className="nav-link" to="/SortByAdmin" style={{fontSize:"35px",color:"black"}} ><b>ADD CATEGORY FORM </b></Link>
         </nav>
-        <ViewOrders />
+        <nav className="nav-item "  style={{marginTop:'5px',textAlign:'center'}}>
+         <Link className="nav-link" to="/ViewOrders" style={{fontSize:"35px",color:"black"}} ><b>Customer orders </b></Link>
+        </nav>
+        {/* <ViewOrders /> */}
         </div>
     )
    
 }
+
