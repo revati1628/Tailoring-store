@@ -4,14 +4,14 @@ import ApproveOrder from './ApproveOrder';
 export default function OrderBystatus(props) {
 
     //const [id,setId]=useState(props.tid);
-    let tid=props.tid;
-    console.log(`id,${props.tid}`);
-    console.log("idd",tid);
+    let tailorid=props.tailorid;
+    //console.log(`id,${props.tid}`);
+    console.log("idd",tailorid);
     const [orders,setOrders]=useState([]);
     const [activeorders,setActiveorders]=useState([])
     
     const ActiveOrders=()=>{
-    fetch(`http://localhost:8080/getByStatus/${tid}/onHold`)
+    fetch(`http://localhost:8080/getByStatus/${tailorid}/onHold`)
     .then(response=>response.json())
     .then(res=>{setOrders(res)
     
@@ -23,7 +23,7 @@ export default function OrderBystatus(props) {
     
         
         
-        fetch(`http://localhost:8080/getByStatus/${tid}/completed`)
+        fetch(`http://localhost:8080/getByStatus/${tailorid}/completed`)
         .then(response=>response.json())
         .then(res=>{setOrders(res)
         
@@ -37,7 +37,7 @@ export default function OrderBystatus(props) {
     
 const Approved=()=>{
 
-            fetch(`http://localhost:8080/getByStatus/${tid}/approved`)
+            fetch(`http://localhost:8080/getByStatus/${tailorid}/approved`)
             .then(response=>response.json())
             .then(res=>{setOrders(res)
             

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useHistory} from "react-router-dom";
+import tailor from "../Images/tailor.jpg";
 import TailorSorting from "./TailorSorting";
 import UpdateDetails from './UpdateDetails';
 
@@ -16,25 +17,27 @@ export default function TailorPage() {
     }
     
     return (
-        <div>
-            <h1>Tailor page</h1>
+        <div className="container-fluid" style={{backgroundImage:`url(${tailor})`,height:'600px'}}>
+            <h2 style={{textAlign:'center',color:"black"}}>WELCOME TAILOR</h2>
            
-            <div style={{float:"right"}}>
-            <button className="btn btn-success" onClick={helpPage}>Help</button><br/><br/>
-            <button className="btn btn-primary" onClick={logout} style={{paddingLeft:"10px",paddingRight:"10px"}}>LogOut</button>
-            </div>
-            <nav className="nav-item "  style={{color:'brown'}}>
-         <Link className="nav-link" to="/TailorSorting" >Tailor Sorting</Link>
+            <button className="btn btn-primary" onClick={logout} style={{paddingLeft:"10px",paddingRight:"10px",marginTop:'10px',marginLeft:'1000px',marginRight:'40px'}}>LogOut</button>
+           
+           
+            <nav className="nav-item "  style={{textAlign:'center',marginTop:'20px',fontSize:"35px"}}>
+         <Link className="nav-link" to="/TailorSorting" style={{color:"yellowgreen"}} >TAILOR SORTING</Link>
         </nav>
 
-        <nav className="nav-item "  style={{color:'brown'}}>
-         <Link className="nav-link" to="/UpdateDetails" >Update Details</Link>
+        <nav className="nav-item "  style={{color:'brown',textAlign:'center',marginTop:'20px',fontSize:"35px"}}>
+         <Link className="nav-link" to="/UpdateDetails" style={{color:"Highlight"}} >UPDATE DETAILS</Link>
         </nav>
 
-         <nav className="nav-item "  style={{color:"yellowgreen"}}>
-         <Link className="nav-link" to="/UploadPatterns" >Upload Patterns</Link>
+        <nav className="nav-item "  style={{color:"yellowgreen",textAlign:'center',marginTop:'20px',fontSize:"35px"}}>
+         <Link className="nav-link" to="/UploadPatterns" style={{color:"violet"}} >UPLOAD PATTERNS</Link>
         </nav>
-        
+
+        <nav className="nav-item "  style={{color:"yellowgreen",textAlign:'center',marginTop:'20px',fontSize:"35px"}}>
+         <Link className="nav-link" to="/CheckOrders" style={{color:"violet"}} >Check Orders</Link>
+        </nav>
         
         </div>
     )
