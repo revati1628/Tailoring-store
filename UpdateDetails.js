@@ -32,10 +32,12 @@ export default function UpdateDetails() {
     
     return (
         <div>
-            <h1>UpdateDetails</h1>
+           
             <button type="button" onClick={()=>{history.push('TailorPage')}}>Back</button>
+             <h2 style={{textAlign:'center',marginTop:'20px'}}>UPDATE DETAILS</h2>
+            
             <form onSubmit={handleSubmit}
-         style={{border:'1px solid blue',"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'darkgreen',alignItems:"center"}} >
+         style={{"padding":3,"width":500,"paddingLeft":30,fontFamily:'sans-serif',color:'black',alignItems:"center",marginLeft:'370px',marginBottom: '20px'}} >
 
         <div className="mb-3">
           <label htmlFor="tailorid" className="form-label">Tailor Id</label>
