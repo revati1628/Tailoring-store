@@ -38,6 +38,9 @@ export default function TailorPage() {
         <nav className="nav-item "  style={{color:"yellowgreen",textAlign:'center',marginTop:'20px',fontSize:"35px"}}>
          <Link className="nav-link" to="/CheckOrders" style={{color:"violet"}} >Check Orders</Link>
         </nav>
+        <nav className="nav-item "  style={{color:"yellowgreen",textAlign:'center',marginTop:'20px',fontSize:"35px"}}>
+         <Link className="nav-link" to="/PaymentStatus" style={{color:"violet"}} >Payment Status</Link>
+        </nav>
         
         </div>
     )

@@ -3,7 +3,8 @@ import { useHistory,Link, BrowserRouter, Switch,Route } from "react-router-dom";
 import {AiOutlineSearch} from "react-icons/ai"
 import '../App.css';
 import user from '../Images/user.jpg'
-import AdminFeedback from './AdminFeedback';
+import AdminFeedback from '../AdminComponents/AdminFeedback';
+import PaymentRequest from './PaymentRequest';
 
 export default function UserPage(props) {
 
@@ -31,6 +32,10 @@ export default function UserPage(props) {
         <div>
         <nav className="nav-item "  style={{color:"white",fontSize:"35px"}}>
          <Link className="nav-link" to="/TailorSearch" style={{color:"white"}}><AiOutlineSearch />Search for Tailor</Link>
+        </nav>
+        <PaymentRequest />
+        <nav className="nav-item "  style={{color:"white",fontSize:"35px"}}>
+         <Link className="nav-link" to="/ViewByOrder" style={{color:"white"}}>ViewByOrder</Link>
         </nav>
         </div>
             
