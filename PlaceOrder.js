@@ -63,12 +63,14 @@ const PlaceOrder=()=>{
     
 
     return(
-        <div className="container">
-                <button type="button" className="btn btn-outline-primary" style={{float:"right",paddingRight:"10px"}}
+         <div className="container">
+                <button type="button" className="btn btn-outline-primary" style={{float:"right",paddingRight:"10px",marginTop:'20px'}}
             onClick={back}>Back</button>
             <div className="row">
             
-                <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)} style={{border:'1px solid black'}}>
+            <form className="w-10 mx-auto " onSubmit={handleSubmit(onFormSubmit)} style={{"padding":15,"width":500,fontFamily:'sans-serif',color:'black',marginLeft:'5000px',
+                                                      marginTop:'20px'}}>
+            <h3  style={{color:'black',textAlign:'center',marginBottom:'20px'}}>PLEASE FILL THE DETAILS</h3>
                     
                     <label htmlFor="cid">Enter Customer id</label><input type="number" id="cid" className="form-control"
                             onChange={(e)=>setCustomerid(e.target.value)}
